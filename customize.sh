@@ -32,6 +32,9 @@ if [ "$1" = 'NOR' ]; then
 elif [ "$1" = 'NAND' ]; then
 	cp configs/mt7621_nand_template_defconfig ${DEFCONFIG}
 	echo -e "CONFIG_MTDPARTS_DEFAULT=\"mtdparts=nand0:$2\"" >> ${DEFCONFIG}
+elif [ "$1" = 'NOR-EMS' ]; then
+	cp configs/mt7621_nor_ems_defconfig ${DEFCONFIG}
+	echo -e "CONFIG_MTDPARTS_DEFAULT=\"mtdparts=raspi:$2\"" >> ${DEFCONFIG}
 else
 	cp configs/mt7621_nmbm_template_defconfig ${DEFCONFIG}
 	echo -e "CONFIG_MTDPARTS_DEFAULT=\"mtdparts=nmbm0:$2\"" >> ${DEFCONFIG}
